@@ -1,0 +1,37 @@
+# Copyright 2022 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+target_table_name: bas_geo_openstreetmap.history_layers
+job_write_mode: WRITE_TRUNCATE
+target_hx_loading_indicator: N
+stage_loading_query: queries/bas_geo_openstreetmap.history_layers.sql
+job_data_quality_query: queries/general_check.sql
+
+
+descriptions:
+  columns:
+    layer_code: >
+      Geofabrik layer code. Example: 1003. Layers are hierarchical; The mask code=10xx corresponds to 'place' layers, and code=1003 corresponds to a 'village' type of place.
+    layer_class: >
+      Geofabrik layer class, a friendly name for layer_code. Example: 'place'
+    layer_name: >
+      Geofabrik layer name, a friendly name for layer_code. Example: 'village'
+    osm_id: OSM Id taken from the id of this feature (node_id or relation_id) in the OSM database.
+    osm_way_id: OSM Way Id taken from the id of this feature (way_id) in the OSM database.
+    osm_timestamp: Last-modified timestamp for this object.
+    osm_version: Version number for this object.
+    all_tags: Unstructured key=value attributes for this object.
+    geometry: GEOGRAPHY-encoded object
+    gdal_type: >
+      OpenStreetMap feature type. One of: point, line, multilinestring, multipolygon, other_relation
