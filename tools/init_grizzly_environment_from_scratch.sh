@@ -21,7 +21,7 @@
 # gh auth login
 # sudo rm -rf ~/grizzly_repo && mkdir ~/grizzly_repo
 # cd ~/grizzly_repo
-# gh repo clone google/grizzly
+# gh repo clone Aliaksei-Surautsau/gcp-data-ops
 
 
 Help()
